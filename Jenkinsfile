@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/aniljain19723/demo.git'
+                git branch: 'main', url: 'https://github.com/ash92744/First-CICD'
             }
         }
         stage('Build Docker Image') {
