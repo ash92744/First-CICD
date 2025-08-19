@@ -4,7 +4,7 @@ pipeline {
         ansiColor('xterm')
     }
     environment {
-        DOCKER_IMAGE = 'itguruanil/paytm-registration'
+        DOCKER_IMAGE = 'ash92744/paytm-registration'
         DOCKER_HUB_CREDENTIALS = credentials('dockerhub-creds')
     }
     stages {
@@ -42,4 +42,3 @@ pipeline {
         }
     }
 }
-
