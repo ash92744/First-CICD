@@ -1,17 +1,19 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const PORT = 3000;
+
+// Use port from environment variable (Dockerfile will expose 80)
+const PORT = process.env.PORT || 80;
 
 // Middleware to parse form data
 app.use(express.urlencoded({ extended: true }));
 
-// Serve index.html on root route
+// Serve register.html on root route
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'register.html'));
 });
 
-// Handle registration form
+// Handle registration form submission
 app.post('/register', (req, res) => {
   const { name, email, phone } = req.body;
   res.send(`
@@ -32,4 +34,3 @@ app.post('/register', (req, res) => {
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`✅ App running on http://0.0.0.0:${PORT}`);
 });
-
